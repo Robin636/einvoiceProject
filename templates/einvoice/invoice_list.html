@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Rechnung{% endblock title %}
+
+{% block content %}
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-2" style="line-height: 25px"><h4>E-Rechnungen</h4></div>
+      <div class="col-1"><a href="{% url 'einvoice:invoice_add' %}"><i class="bi bi-plus-square"></i></a></div>
+    </div>
+  </div>
+  <p></p>
+  <p></p>
+  
+  <div class="container">
+
+    {% if invoice_list.count > 0 %}
+      <div class="row" style="text-align: left; font-weight: bold;">
+        <div class="col-2">Rechnung</div>
+        <div class="col-1">Datum</div>
+        <div class="col-4">Kunde</div>
+        <div class="col-1">liefern</div>
+        <div class="col-1">zahlen</div>
+        <div class="col-1">PDF erstellt</div>
+{#        <div class="col-2">XML erstellt</div>#}
+        <div class="col-1">versandt</div>   
+      </div>
+      <div class="row" style="text-align: left"></div>
+      {% for invoice in invoice_list %}
+        <div class="row" style="text-align: left">
+          <div class="col-1"><a href="{% url 'einvoice:invoice_detail' pk=invoice.pk %}">{{ invoice.number }}</a></div>
+          <div class="col-1" style="text-align: left"><a href="{% url 'einvoice:invoice_delete' pk=invoice.pk %}"><i aria-hidden="true" class="fa fa-trash-o" ></i></a></div>
+          <div class="col-1">{{ invoice.date_created|date:"d.m.y" }}</div>
+          <div class="col-4">
+            <a href="{% url 'einvoice:customer_delete' pk=invoice.pk id=invoice.customer.pk %}">{{ invoice.customer.can_be_deleted}}</a>
+            <a href="{% url 'einvoice:customer_update' id=invoice.customer.id %}">{{ invoice.customer }}</a> 
+          </div>
+          <div class="col-1">{{ invoice.date_deliver|date:"d.m.y" }}</div>
+          <div class="col-1">{{ invoice.date_due|date:"d.m.y" }}</div>
+          <div class="col-1">{{ invoice.date_genPDF|date:"d.m.y" }}</div>
+{#          <div class="col-2">{{ invoice.date_genXML|date:"d.m.y H:i" }}</div>#}
+          <div class="col-1">{{ invoice.date_sentFiles|date:"d.m.y" }}</div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Noch keine Rechnungen erstellt!</p>
+    {% endif %}
+  
+  </div>
+
+{% endblock content %}

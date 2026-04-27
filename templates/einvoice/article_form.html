@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{{ form.media }}
+
+{% block title %}{{ invoice.number }}{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12" style="font-weight: bold">{{ invoice.type }} an {{customer.name}} {{ customer.address }} {{ customer.PLZ }} {{ customer.city }} {{ customer.contact }}</div>
+    </div>
+  </div>
+  <br>    
+  <div class="container">
+    <div class="row">
+      <div class="col-1">Pos.</div>
+      <div class="col-3">Beschreibung</div>
+      <div class="col-1" style="text-align: right">Menge</div>
+      <div class="col-1" style="text-align: right">Einheit</div>
+      <div class="col-1" style="text-align: right">Einzelpreis</div>
+
+      <div class="col-3" style="text-align: right">St-Satz</div>
+      <div class="col-1" style="padding-left: 25px" >Kat.</div>
+    </div>
+  </div>
+  <br>
+  
+  <form action="" method="post">{% csrf_token %}
+
+    <div class="row"> 
+{#      <div class="d-flex flex-row align-items-center">#}
+      <div class="d-flex flex-row align-items-right">
+        <div class="p-1">
+          {% render_field form.pos class="form-control" style="width: 90px" %}
+        </div>
+        <div class="p-2">
+          {% render_field form.description class="form-control" style="width: 350px" %}
+        </div>
+        <div class="p-1">
+          {% render_field form.nofArticles class="form-control" style="width: 100px" %}
+        </div>
+        <div class="p-2">
+          {% render_field form.unit class="form-control" style="width: 60px" %}
+        </div>
+        <div class="p-2">
+          {% render_field form.price class="form-control" style="width: 330px" %}
+        </div>
+        <div class="pl-5 justify-content-end d-flex">
+          {% render_field form.tax_percentage class="form-control" style="width: 80px" %}
+        </div>
+        <div class="pl-2">
+          {% render_field form.category class="form-control" style="width: 100px" %}
+        </div>
+        
+      </div>
+
+    </div>    
+  
+    <br>
+    <div style="margin-left: 1000px">
+      <a  style="margin-right: 20px;" class="btn btn-secondary" href="{% url 'einvoice:invoice_detail' pk=invoice.pk %}">Cancel</a>
+      <button type="submit" class="save btn btn-success">Sichern</button>
+    </div>
+  </form>
+  
+  
+  <br>
+  <div class="container text-left">
+    {% if iNOfArticles > 0 %}
+      <div class="row">
+        <div class="col-1" style="text-align: left">Position</div>
+        <div class="col-3" style="text-align: left" >Beschreibung</div>
+        <div class="col-1" style="text-align: right">Menge</div>
+        <div class="col-1" style="text-align: right">Einheit</div>
+        <div class="col-1" style="text-align: right">Einzelpreis</div>
+        <div class="col-2" style="text-align: right">Preis</div>
+        <div class="col-1" style="text-align: right">St-Satz</div>
+      </div>  
+    {% endif %}
+  </div>
+    <br>
+  
+  <div class="container text-left">
+      {% for article in article_list %}
+      
+        <div class="row"> 
+          <div class="col-1" style="text-align: left">{{ article.pos }}</div>
+          <div class="col-3" style="text-align: left" >{{ article.description }}</div>
+          <div class="col-1" style="text-align: right">{{ article.nofArticles }}</div>
+          <div class="col-1" style="text-align: right">{{ article.unit }}</div>
+          <div class="col-1" style="text-align: right">{{ article.price }}</div>
+          <div class="col-2" style="text-align: right">{{ article.price_pos }}</div>
+          <div class="col-1" style="text-align: right">{{ article.tax_percentage }}</div>
+{#          <div class="col-1" style="text-align: right"><a href="{% url 'einvoice:article_update' pk=invoice.pk id=article.id %}"><i aria-hidden="true" class="fa fa-pencil"></i></a></div>#}
+{#          <div class="col-1" style="text-align: right"><a href="{% url 'einvoice:article_delete' pk=invoice.pk id=article.id %}"><i aria-hidden="true" class="fa fa-trash-o" ></i></a></div>#}
+        </div>
+      {% endfor %}
+    </div>
+
+{% endblock content %}

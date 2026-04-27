@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Artikel löschen{% endblock title %}
+
+{% block content %}
+  
+  <div class="container">
+    <form action="" method="post">{% csrf_token %}
+		
+      <div class="container text-left">
+        <div class="row">
+          <div class="col-2" style="font-weight: bold">Position löschen?</div><br>
+        </div>
+        
+        <hr>
+        <br>
+        <div class="row">
+          <div class="col-1">{{article.pos}}</div>
+          <div class="col-3" >{{ article.description }}</div>
+          <div class="col-1" style="text-align: right">{{ article.nofArticles }}</div>
+          <div class="col-2" style="text-align: right">{{ article.price }}</div>
+        </div>
+      </div>
+{#      <hr>#}
+      <br>
+    <div style="margin-left: 800px">
+      <a style="margin-right: 40px;" class="btn btn-secondary" href="{% url 'einvoice:invoice_detail' pk=invoice.pk %}">Cancel</a>
+      <button type="submit" class="btn btn-danger">Löschen</button>
+    </div>
+    <hr>
+    <br>
+
+	</form>
+  
+  <br>
+  
+   <div class="container text-left">
+    {% if iNOfArticles > 0 %}
+      <div class="row">
+        <div class="col-1" style="text-align: left">Position</div>
+        <div class="col-3" >Beschreibung</div>
+        <div class="col-1" style="text-align: right">Menge</div>
+        <div class="col-2" style="text-align: right">Einzelpreis</div>
+        <div class="col-2" style="text-align: right">Preis</div>
+        <div class="col-1" style="text-align: right">St-Satz</div>
+      </div>  
+    {% endif %}
+  </div>
+    <br>
+  
+  <div class="container text-left">
+      {% for article in article_list %}
+        <div class="row"> 
+          <div class="col-1" style="text-align: left">{{ article.pos }}</div>
+          <div class="col-3" >{{ article.description }}</div>
+          <div class="col-1" style="text-align: right">{{ article.nofArticles }}</div>
+          <div class="col-2" style="text-align: right">{{ article.price }}</div>
+          <div class="col-2" style="text-align: right">{{ article.price_pos }}</div>
+          <div class="col-1" style="text-align: right">{{ article.tax_percentage }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{#{% block title %}{{ user.username }}{% endblock title %}#}
+
+{% block content %}
+  <h4>Kundenadresse</h4>
+
+    <form action="" method="post">{% csrf_token %}
+      <table>
+        {% for field in form %}
+          <tr>
+            <td>{{ field.label }}: </td>
+            <td>{{ field }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <div style="margin-left: 130px;">
+        <a class="btn btn-secondary" href="{% url 'einvoice:invoice_list' %}">Cancel</a>
+        <button type="submit" name='customer_form' style="margin-left: 35px;" class="save btn btn-success">Sichern</button>
+      
+      </div>
+    
+    {% csrf_token %}
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{{ form.media }}
+
+{% block title %}{{ invoice.number }}{% endblock title %}
+
+{% block content %}
+  
+  <form action="" method="post">{% csrf_token %}
+    
+    <div class="container text-left">
+      <div class="row">
+        <div class="col-1">Pos.</div>
+        <div class="col-3">Bild</div>
+      </div>  
+      <div class="row"> 
+        <div class="col-1">{{ form.pos }}</div>
+        <div class="col-3">{{ form.image }}</div>
+      </div>
+      
+    </div>
+  
+    <br>
+    <div style="margin-left: 810px">
+      <a  style="margin-right: 40px;" class="btn btn-secondary" href="{% url 'einvoice:invoice_detail' pk=invoice.pk %}">Cancel</a>
+      <button type="submit" class="save btn btn-success">Sichern</button>
+    </div>
+
+  </form>
+
+{% endblock content %}

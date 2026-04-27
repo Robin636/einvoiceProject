@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ invoice.customer }}: {{ invoice.number }}{% endblock title %}
+
+{% block content %}
+  
+  <div class="container">
+      <div class="row" style="font-weight: bold">
+        <div class="col-1" style="font-weight: bold">{{ invoice.number }}:</div>
+        <div class="col-4" style="font-weight: bold">{{ invoice.customer }}</div>
+        <div class="col-1" >{{ invoice.customer.PLZ }} </div>
+        <div class="col-2" >{{ invoice.customer.city }} </div>
+        <div class="col-2" >{{ invoice.customer.contact }} </div>
+        <div class="col-2" >{{ invoice.customer.email }} </div>
+        </div>
+      <div class="row">
+{#        <div class="col-1" ></div>#}
+        <div class="col-1" >* {{ invoice.date_created|date:"d.m.y" }}</div>
+        <div class="col-4" >-> {{ invoice.date_deliver|date:"d.m.y" }}</div>
+        <div class="col-3" > {{ invoice.date_genPDF|date:"d.m.y" }}</div>
+        <div class="col-2" >€ {{ invoice.date_due|date:"d.m.y" }}</div>
+        <div class="col-2" >@ {{ invoice.date_sentFiles|date:"d.m.y" }}</div>
+      </div>
+  </div>
+ 
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col-1"><a href="{% url 'einvoice:invoice_changeLanguage' pk=invoice.pk %}">{{ invoice.language }}</a></div>
+      <div class="col-2"><a href="{% url 'einvoice:invoice_changeTitle' pk=invoice.pk %}">{{ invoice.type }}</a></div>
+      <div class="col-2"><a href="{% url 'einvoice:article_add' pk=invoice.pk %}">Zeile hinzufügen</a></div>
+      <div class="col-3"><a target="_blank" href="{% url 'einvoice:invoice_genPDF' pk=invoice.pk %}">PDF erstellen</a></div>
+      <div class="col-2"><a href="{% url 'einvoice:invoice_genXML' pk=invoice.pk %}">XML erstellen</a></div>
+      <div class="col-2"><a href="{% url 'einvoice:invoice_send' pk=invoice.pk %}">Dateien versenden</a></div>
+    </div>
+  </div>
+  
+  <br>
+  <div class="container text-left">
+    {% if iNOfArticles > 0 %}
+      <div class="row">
+        <div class="col-1" style="text-align: left">{{ text.pos }}</div>
+        <div class="col-3" >{{ text.Beschreibung }}</div>
+        <div class="col-1" style="text-align: right">{{ text.Menge }}</div>
+        <div class="col-1" style="text-align: right">{{ text.Einheit }}</div>
+        <div class="col-1" style="text-align: right">{{ text.EPreis }}</div>
+        <div class="col-2" style="text-align: right">{{ text.Preis }}</div>
+        <div class="col-1" style="text-align: right">{{ text.StSatz }}</div>
+      </div>  
+    {% endif %}
+  </div>
+{#  <br>#}
+
+  
+    <div class="container text-left">
+      {% for article in article_list %}
+      
+        <div class="row"> 
+  
+          {% if article.category == '2' %}  {# Titel #}
+            <p></p>
+            <div class="col-1" style="text-align: left">{{ article.pos }}</div>
+            <div class="col-9" style="font-weight: bold">{{ article.description }}</div>
+          {% else %}
+            {% if article.category == '3' %}  {# Dienstleistung #}
+              <div class="col-1" style="text-align: left; color: limegreen" >{{ article.pos }}</div>
+            {% else %}
+              <div class="col-1" style="text-align: left">{{ article.pos }}</div>
+            {% endif %}
+            <div class="col-3" >{{ article.description }}</div>
+            <div class="col-1" style="text-align: right">{{ article.nofArticles }}</div>
+            <div class="col-1" style="text-align: right">{{ article.unit }}</div>
+            <div class="col-1" style="text-align: right">{{ article.price }}</div>
+            <div class="col-2" style="text-align: right; font-weight: bold">{{ article.price_pos }}</div>
+            <div class="col-1" style="text-align: right">{{ article.tax_percentage }}</div>
+          {% endif %}
+          <div class="col-1" style="text-align: right"><a href="{% url 'einvoice:article_update' pk=invoice.pk id=article.id %}"><i aria-hidden="true" class="fa fa-pencil"></i></a></div>
+          <div class="col-1" style="text-align: right"><a href="{% url 'einvoice:article_delete' pk=invoice.pk id=article.id %}"><i aria-hidden="true" class="fa fa-trash-o" ></i></a></div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div class="container text-left">
+      <br>
+      <div class="row">
+        <div class="col-7" style="text-align: right">{{ text.Summe }} </div>
+        <div class="col-2" style="text-align: right; font-weight: bold">{{ invoice.netto_sum }}</div>
+      </div>
+    <div class="row">
+      <div class="col-7" style="text-align: right">{{ text.MwSt }} </div>
+      <div class="col-2" style="text-align: right; font-weight: bold">{{ invoice.mwst_sum }}</div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-9" style="text-align: right">----------</div>
+    </div>
+    <div class="row">
+      <div class="col-2">{{ note.service_text }}</div>
+      <div class="col-4">{{ invoice.service_sum }} €</div>
+      <div class="col-1" style="text-align: right; font-weight: bold">{{ text.Gesamt }}</div>
+      <div class="col-2" style="text-align: right; font-weight: bold">{{ invoice.brutto_sum }}</div>
+      <div class="col-1" style="text-align: left">€ {{ total }}</div>
+    </div>
+  
+    
+  
+{% endblock content %}

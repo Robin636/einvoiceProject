@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rsm:CrossIndustryInvoice xmlnsrms="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlnsqdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:100" xmlnsram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlnsxs="http://www.w3.org/2001/XMLSchema" xmlnsudt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100">
+  <rsm:ExchangedDocumentContext>
+    <ram:TestIndicator>
+      <udt:Indicator>true</udt:Indicator>
+    </ram:TestIndicator>
+    <ram:GuidelineSpecifiedDocumentContextParameter>
+      <ram:ID>urn:cen.eu:en16931:2017#conformant#urn:factur-x.eu:1p0:extended</ram:ID>
+    </ram:GuidelineSpecifiedDocumentContextParameter>
+  </rsm:ExchangedDocumentContext>
+  <rsm:ExchangedDocument>
+    <ram:ID>2026113</ram:ID>
+    <ram:Name>RECHNUNG</ram:Name>
+    <ram:TypeCode>380</ram:TypeCode>
+    <ram:IssueDateTime>
+      <udt:DateTimeString format="102">20260226</udt:DateTimeString>
+    </ram:IssueDateTime>
+    <ram:IncludedNote>
+      <ram:ContentCode>ST3</ram:ContentCode>
+      <ram:Content>Es bestehen keine Rabatt- oder Bonusvereinbarungen.</ram:Content>
+      <ram:SubjectCode>AAK</ram:SubjectCode>
+    </ram:IncludedNote>
+    <ram:IncludedNote>
+      <ram:ContentCode>EEV</ram:ContentCode>
+      <ram:Content>Der Verkäufer bleibt Eigentümer der Waren bis zur vollständigen Erfüllung der Kaufpreisforderung.</ram:Content>
+      <ram:SubjectCode>AAJ</ram:SubjectCode>
+    </ram:IncludedNote>
+    <ram:IncludedNote>
+      <ram:Content>Geschäftsführer: Dr.-Ing. Monika Rauner</ram:Content>
+      <ram:SubjectCode>REG</ram:SubjectCode>
+    </ram:IncludedNote>
+    <ram:IncludedNote>
+      <ram:Content>Handelsregister: </ram:Content>
+      <ram:SubjectCode>REG</ram:SubjectCode>
+    </ram:IncludedNote>
+    <ram:IncludedNote>
+      <ram:Content>Amtsgericht: </ram:Content>
+      <ram:SubjectCode>REG</ram:SubjectCode>
+    </ram:IncludedNote>
+    <ram:IncludedNote>
+      <ram:Content>ZUGFeRD vers 2.4.0 (Extended)</ram:Content>
+      <ram:SubjectCode>ACB</ram:SubjectCode>
+    </ram:IncludedNote>
+    <ram:IncludedNote>
+      <ram:Content>Dies ist ein Beispiel für eine Kostenrechnung:</ram:Content>
+      <ram:SubjectCode>ACB</ram:SubjectCode>
+    </ram:IncludedNote>
+  </rsm:ExchangedDocument>
+  <rsm:SupplyChainTradeTransaction>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>1</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Dienstleistung am 20.2.2026</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>0.00</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>0.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Std">1.00</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>0.00</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>1.1</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Fahrt zum Kunden</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Std">0.25</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>17.50</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>1.2</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Windows Treiber für Netzwerkkomponente upgedatet. System mehrmals neu gestartet.</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Std">0.50</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>35.00</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>1.3</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Sicherungsläufe überprüft. Acronis Ziel neu eingestellt. Getestet.</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Std">0.75</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>52.50</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>2</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Hardware</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>0.00</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>0.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Std">1.00</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>0.00</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>2.1</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Ext. Festplatte 3TB</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>69.50</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>69.50</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Stk">1.00</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>69.50</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>3</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Dienstleistung am 22.2.26</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>0.00</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>0.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Std">1.00</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>0.00</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <rsm:IncludedSupplyChainTradeLineItem>
+      <rsm:AssociatedDocumentLineDocument>
+        <ram:LineID>3.1</ram:LineID>
+      </rsm:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:SellerAssignedID> </ram:SellerAssignedID>
+        <ram:Name>Remotesitzung: Sicherungsdateien überprüft</ram:Name>
+        <ram:ApplicableProductCharacteristic>
+          <ram:Description> </ram:Description>
+          <ram:Value> </ram:Value>
+        </ram:ApplicableProductCharacteristic>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>70.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="Std">0.50</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+      </ram:SpecifiedLineTradeSettlement>
+      <ram:SpecifiedTradeSettlementLineMonetarySummation>
+        <ram:LineTotalAmount>35.00</ram:LineTotalAmount>
+      </ram:SpecifiedTradeSettlementLineMonetarySummation>
+    </rsm:IncludedSupplyChainTradeLineItem>
+    <ram:ApplicableHeaderTradeAgreement>
+      <ram:SellerTradeParty>
+        <ram:ID> </ram:ID>
+        <ram:GlobalID> </ram:GlobalID>
+        <ram:Name>EDV IN NITTENAU</ram:Name>
+        <ram:DefinedTradeContact>
+          <ram:TelephoneUniversalCommunication>
+            <ram:CompleteNumber>01792162273</ram:CompleteNumber>
+          </ram:TelephoneUniversalCommunication>
+          <ram:EmailURIUniversalCommunication>
+            <ram:EmailURIUniversalCommunication>monika@rauner.de</ram:EmailURIUniversalCommunication>
+          </ram:EmailURIUniversalCommunication>
+        </ram:DefinedTradeContact>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>93149</ram:PostcodeCode>
+          <ram:LineOne>Evermod-Groll-Weg 7</ram:LineOne>
+          <ram:CityName>Nittenau</ram:CityName>
+          <ram:CountryID>DE</ram:CountryID>
+        </ram:PostalTradeAddress>
+        <ram:SpecifiedTaxRegistration>
+          <ram:ID schemeID="FC">201/113/40209</ram:ID>
+        </ram:SpecifiedTaxRegistration>
+      </ram:SellerTradeParty>
+      <ram:BuyerTradeParty>
+        <ram:ID> </ram:ID>
+        <ram:GlobalID> </ram:GlobalID>
+        <ram:Name>Fritz Spannung</ram:Name>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>84261</ram:PostcodeCode>
+          <ram:LineOne>Holbein-Weg 17</ram:LineOne>
+          <ram:CityName>Spandau</ram:CityName>
+          <ram:CountryID>DE</ram:CountryID>
+          <ram:TypeCode />
+        </ram:PostalTradeAddress>
+      </ram:BuyerTradeParty>
+      <ram:AdditionalReferencedDocument>
+        <ram:IssuerAssignedID />
+      </ram:AdditionalReferencedDocument>
+    </ram:ApplicableHeaderTradeAgreement>
+    <ram:ApplicableHeaderTradeDelivery>
+      <ram:ShipToTradeParty>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:Name>Fritz Spannung</ram:Name>
+        <ram:DefinedTradeContact>
+          <ram:DepartmentName> </ram:DepartmentName>
+        </ram:DefinedTradeContact>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>84261</ram:PostcodeCode>
+          <ram:LineOne>Holbein-Weg 17</ram:LineOne>
+          <ram:CityName>Spandau</ram:CityName>
+          <ram:CountryID>DE</ram:CountryID>
+        </ram:PostalTradeAddress>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>84261</ram:PostcodeCode>
+          <ram:LineOne>Holbein-Weg 17</ram:LineOne>
+          <ram:CityName>Spandau</ram:CityName>
+          <ram:CountryID>DE</ram:CountryID>
+        </ram:PostalTradeAddress>
+      </ram:ShipToTradeParty>
+      <ram:ActualDeliverySupplyChainEvent>
+        <ram:OccurrenceDateTime>
+          <ram:DateTimeString format="102">20260226</ram:DateTimeString>
+        </ram:OccurrenceDateTime>
+      </ram:ActualDeliverySupplyChainEvent>
+      <ram:DeliveryNoteReferencedDocument>
+        <ram:IssuerAssignedID> </ram:IssuerAssignedID>
+      </ram:DeliveryNoteReferencedDocument>
+    </ram:ApplicableHeaderTradeDelivery>
+    <ram:ApplicableHeaderTradeSettlement>
+      <ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
+      <ram:InvoiceeTradeParty>
+        <ram:ID> </ram:ID>
+        <ram:GlobalID schemeID="0088"> </ram:GlobalID>
+        <ram:Name>Fritz Spannung</ram:Name>
+      </ram:InvoiceeTradeParty>
+      <ram:ApplicableTradeTax>
+        <ram:CalculatedAmount>39.80</ram:CalculatedAmount>
+        <ram:TypeCode>VAT</ram:TypeCode>
+        <ram:BasisAmount>209.50</ram:BasisAmount>
+        <ram:LineTotalBasisAmount>209.50</ram:LineTotalBasisAmount>
+        <ram:AllowanceChargeBasisAmount>0.00</ram:AllowanceChargeBasisAmount>
+        <ram:CategoryCode>S</ram:CategoryCode>
+        <ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+      </ram:ApplicableTradeTax>
+      <ram:SpecifiedTradeAllowanceCharge>
+        <ram:ChargeIndicator>
+          <ram:Indicator>false</ram:Indicator>
+        </ram:ChargeIndicator>
+        <ram:BasisAmount>209.50</ram:BasisAmount>
+        <ram:ActualAmount>0.00</ram:ActualAmount>
+        <ram:Reason> </ram:Reason>
+        <ram:CategoryTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.00</ram:RateApplicablePercent>
+        </ram:CategoryTradeTax>
+        <ram:SpecifiedLogisticsServiceCharge>
+          <ram:Description>Transportkosten: Frachtbetrag</ram:Description>
+          <ram:AppliedAmount>0.00</ram:AppliedAmount>
+          <ram:AppliedTradeTax>
+            <ram:TypeCode>VAT</ram:TypeCode>
+            <ram:CategoryCode>S</ram:CategoryCode>
+            <ram:RateApplicablePercent>0.00</ram:RateApplicablePercent>
+          </ram:AppliedTradeTax>
+        </ram:SpecifiedLogisticsServiceCharge>
+        <ram:SpecifiedTradePaymentTerms>
+          <ram:Description>Skontovereinbarung: Keine Skontierung</ram:Description>
+          <ram:ApplicableTradePaymentDiscountTerms>
+            <ram:BasisPeriodMeasure unitCode="DAY">0</ram:BasisPeriodMeasure>
+            <ram:CalculationPercent>0.00</ram:CalculationPercent>
+          </ram:ApplicableTradePaymentDiscountTerms>
+          <ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+            <ram:LineTotalAmount>209.50</ram:LineTotalAmount>
+            <ram:ChargeTotalAmount>0.00</ram:ChargeTotalAmount>
+            <ram:AllowanceTotalAmount>0.00</ram:AllowanceTotalAmount>
+            <ram:TaxBasisTotalAmount>209.50</ram:TaxBasisTotalAmount>
+            <ram:TaxTotalAmount currencyID="EUR">39.80</ram:TaxTotalAmount>
+            <ram:GrandTotalAmount>249.30</ram:GrandTotalAmount>
+            <ram:TotalPrepaidAmount>0.00</ram:TotalPrepaidAmount>
+            <ram:DuePayableAmount>249.30</ram:DuePayableAmount>
+          </ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+        </ram:SpecifiedTradePaymentTerms>
+      </ram:SpecifiedTradeAllowanceCharge>
+    </ram:ApplicableHeaderTradeSettlement>
+  </rsm:SupplyChainTradeTransaction>
+</rsm:CrossIndustryInvoice>

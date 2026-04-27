@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Kunden löschen{% endblock title %}
+
+{% block content %}
+  
+  <div class="container">
+    <form method="post" class="card">{% csrf_token %}
+		<h4>Kunden:</h4>
+		<p>"{{customer.name}}: {{ customer.address }} aus {{ customer.PLZ }} {{ customer.city }}" löschen?</p>
+      
+    <div style="margin-left: 400px">
+      <a style="margin-right: 40px;" class="btn btn-secondary" href="{% url 'einvoice:invoice_list' %}">Cancel</a>
+      <button type="submit" class="btn btn-danger">Löschen</button>
+    </div>
+  
+
+	</form>
+  
+   
+
+  
+  </div>
+
+{% endblock content %}

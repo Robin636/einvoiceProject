@@ -1,0 +1,10 @@
+Django==5.2.11
+django-crispy-forms==2.4
+django-grappelli==3.0.10
+django-localflavor==4.0
+messages==0.8.0
+PyMySQL==1.1.1
+typing_extensions==4.13.2
+xhtml2pdf==0.2.17
+
+django-environ~=0.13.0

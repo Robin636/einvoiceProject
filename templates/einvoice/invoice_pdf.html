@@ -1,0 +1,330 @@
+{% load static %}
+
+{#<!DOCTYPE html>#}
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>{% if invoice.number %}Re {{ invoice.number }}{% else %}PDF_Rechnung{% endif %}</title>
+
+  <style>
+      
+    .table_pdf{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 12px;
+      {#margin: 0;#}
+      margin-left: 40px;
+      width: 1000px;
+      {#border: 1px solid black;#}
+    }
+     .table_pdf_l{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 12px;
+      width: 400px;
+      {#border: 1px solid black;#}
+      margin: 0;
+      padding: 0; 
+      height: 300px
+    }
+     .table_pdf_r{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 12px;
+      width: 500px;
+      padding-left: 20px;
+      padding-right: 0;
+      margin-left: 40px;
+      border: 1px solid red;
+    }
+
+    .pad_left{
+        font-size: 12px;
+        padding-left: 45px;
+        {#border: 1px solid lawngreen;#}
+    }
+    .pad_left_r{
+        font-size: 14px;
+        margin-left: 25px;
+        padding-left: 20px;
+        {#border: 1px solid red;#}
+    }
+    .org_image{
+        width: 400px;
+        height: 120px;
+        margin: 0;
+        padding-left: 1px;
+        row-span: 5;
+    }
+    .blank_row{
+        height: 10px !important;
+        {#background-color: #C2CBE0;#}
+        background-color: #FFFFFF;
+    }
+    .td_bold{
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .hor_row{
+        padding-top: 25px;
+      border-bottom: 1px solid black;
+      line-height: 20px;
+    }
+
+    .col_10{
+        width: 10px;
+    }
+    .col_30{
+        width: 30px;
+    }
+    .col_40{
+        width: 40px;
+    }
+    .col_50{
+        width: 50px;
+    }
+    .col_60{
+        width: 60px;
+    }
+    .col_70{
+        width: 70px;
+    }
+    .col_80{
+        width: 80px;
+    }
+    .col_100{
+        width: 100px;
+    }
+    .col_120{
+        width: 120px;
+    }
+    .col_130{
+        width: 130px;
+    }
+    .col_140{
+        width: 140px;
+    }
+    .col_150{
+        width: 150px;
+    }
+     .col_170{
+        width: 170px;
+    }
+    .col_180{
+        width: 180px;
+    }
+    .col_200{
+        width: 200px;
+    }
+     .col_250{
+        width: 250px;
+    }
+    .col_400{
+        width: 400px;
+    }
+    
+    .pad_100{
+        padding-left: 100px;
+    }
+
+  </style>
+  <title></title>
+</head>
+<body>
+
+  <table class="table_pdf">
+    
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <td class="org_image"><img src="{{organisation.logo.path}}" alt="Logo"></td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <table  class="pad_left_r">
+{#            <table style="width: 350px; padding-left: 40px; border: 1px solid blue;">#}
+            <tr><td class="pad_left_r"  style="font-size: 20px; font-weight: bold; padding-top: 5px; padding-bottom: 5px">{{ organisation.manager }}</td></tr>
+            <tr><td class="pad_left_r">{{ organisation.address }}</td></tr>
+            <tr><td class="pad_left_r">{{ organisation.PLZ }} {{ organisation.city }}</td></tr>
+            <tr><td class="pad_left_r">Tel. {{ organisation.phone }}</td></tr>
+            <tr><td class="pad_left_r">{{ organisation.email }}</td></tr>
+            <td class="pad_left_r">{{ organisation.website }}</td>
+          </table>
+        </td>
+      </tr>
+  </table>
+    
+
+  
+  <table class="table_pdf">
+    <tr>
+      <td style="padding-top: 15px; font-size: 6px; text-decoration: underline">{{ organisation.name }} {{ organisation.address }}
+        {{ organisation.PLZ }} {{ organisation.city }}</td>
+      <td class="pad_left" style="padding-top: 15px">{{ text.Empfaenger }} {{ bank.accountname }}</td>
+    </tr>
+  
+    <tr>
+      <td>{{ invoice.customer.title }}</td>
+      <td class="pad_left"> {{ bank.bankname }}
+    </tr>
+    <tr>
+      <td style="font-weight: bold">{{ invoice.customer.name }}</td>
+      <td class="pad_left">IBAN {{ bank.IBAN }}</td>
+    </tr>
+    <tr>
+      <td>{{ invoice.customer.contact }}</td>
+      <td class="pad_left">BIC {{ bank.BIC }}</td>
+    </tr>
+    <tr>
+      <td>{{ invoice.customer.address }}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>{{ invoice.customer.PLZ }} {{ invoice.customer.city }} </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>{{ invoice.customer.country }}</td>
+      <td class="pad_left" style="font-weight: bold">{{ text.USTID }}: {{ organisation.UStID }}</td>
+    </tr>
+  </table>
+   
+  <table class="table_pdf">
+{#    <tr class="blank_row"><td></td></tr>#}
+
+    <tr class="hor_row">
+      <td class="col_200 td_bold hor_row">{{ docTitle }}</td>
+      <td class="col_200 td_bold hor_row">{{ invoice.number }}</td>
+      <td class="col_200 hor_row" style="text-align: right">{{ organisation.city }}</td>
+      <td class="col_200 hor_row" style="text-align: right">{{ invoice.date_genPDF|date:"d.m.y" }}</td>
+    </tr>
+  </table>
+ 
+  <table class="table_pdf">
+    {% if iNOfArticles > 0 %}
+      <tr class="blank_row"><td colspan="6"></td></tr>
+      <tr style="font-weight: bold">
+        <td  class="col_60" style="text-align: left">{{ text.pos }}</td>
+        <td class="col_400" >{{ text.Beschreibung }}</td>
+        <td class="col_60" style="text-align: right">{{ text.Menge }}</td>
+        <td class="col_60" style="text-align: right">{{ text.Einheit }}</td>
+        <td class="col_70" style="text-align: right">{{ text.EPreis }}</td>
+        <td class="col_70" style="text-align: right">{{ text.Preis }}</td>
+        <td class="col_50" style="text-align: right">{{ text.StSatz }}</td>
+      </tr>  
+      <tr class="blank_row">
+          <td colspan="6"></td>
+      </tr>
+    {% endif %}
+  </table>
+ 
+  <table class="table_pdf">
+    {% for article in article_list %}
+      
+      {% if article.category == '2' %}
+          <tr class="blank_row">
+            <td colspan="7"></td>
+          </tr>
+      {% endif %}
+      
+      <tr> 
+        {% if article.category == '2' %}  {# Titel #}
+          <td class="col_60" style="text-align: left">{{ article.pos }}</td>
+          <td class="col_400" style="font-weight: bold">{{ article.description }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        {% else %}
+          <td class="col_60">{{ article.pos }}</td>
+          <td class="col_400">{{ article.description }}</td>
+          <td class="col_60" style="text-align: right">{{ article.nofArticles }}</td>
+          <td class="col_60" style="text-align: right">{{ article.unit }}</td>
+          <td class="col_70" style="text-align: right">{{ article.price }}</td>
+          <td class="col_70" style="text-align: right; font-weight: bold">{{ article.price_pos }}</td>
+          <td class="col_50" style="text-align: right">{{ article.tax_percentage }}</td>
+        {% endif %}
+        
+      </tr>
+    {% endfor %}
+  
+  </table>
+
+  <table class="table_pdf">
+    <tr class="blank_row">
+          <td colspan="7"></td>
+    </tr>  
+    <tr>
+      <td class="col_60"></td>
+      <td class="col_400"></td>
+      <td class="col_60"></td>
+      <td class="col_60" style="text-align: right"></td>
+      <td class="col_70" style="text-align: right; font-weight: bold">{{ text.Summe }}</td>
+      <td class="col_70" style="text-align: right;">{{ invoice.netto_sum }}</td>
+      <td class="col_50" style="text-align: right"></td>
+    </tr>
+  
+    <tr>
+      <td class="col_60"></td>
+      <td class="col_400"></td>
+      <td class="col_60"></td>
+      <td class="col_60" style="text-align: right"> </td>
+      <td class="col_70" style="text-align: right;">{{ text.MwSt }} </td>
+      <td class="col_70" style="text-align: right;">{{ invoice.mwst_sum }}</td>
+      <td class="col_50" style="text-align: right"></td>
+    </tr>
+  
+    <tr>
+      <td class="col_60"></td>
+      <td class="col_400"></td>
+      <td class="col_60"></td>
+      <td class="col_60" style="text-align: right"></td>
+      <td class="col_70" style="text-align: right"></td>
+      <td class="col_70" style="text-align: right">------------</td>
+      <td class="col_50" style="text-align: right"></td>
+    </tr>
+
+    <tr>
+      <td class="col_60"></td>
+      <td class="col_400">{{ note.service_text}} {{ invoice.service_sum }} €</td>
+      <td class="col_60"></td>
+      <td class="col_60" style="text-align: right"></td>
+      <td class="col_70" style="text-align: right; font-weight: bold">{{ text.Gesamt }}</td>
+      <td class="col_70" style="text-align: right; font-weight: bold">{{ invoice.brutto_sum }}</td>
+      <td class="col_50" style="text-align: right; font-weight: bold">€</td>
+    </tr>
+  </table>  
+
+  {% if type == 'Rechnung' %}
+    <table class="table_pdf"><tr class="blank_row"><td colspan="1"></td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.eigentums_text }}</td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.bonus_text }}</td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.pay_text }} {{ invoice.date_due|date:"d.m.y" }}</td></tr>
+    </table>
+  {% elif type == 'Angebot'  %}
+    <table class="table_pdf"><tr class="blank_row"><td colspan="1"></td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.offer_text }}</td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.advice_text }}</td></tr>
+    </table>
+  {% elif type == 'Auftragsbestätigung'  %}
+    <table class="table_pdf"><tr class="blank_row"><td colspan="1"></td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.thankyou_text }}</td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.advice_text }}</td></tr>
+    </table>
+  {% else %}  
+    <table class="table_pdf"><tr class="blank_row"><td colspan="1"></td></tr>
+      <tr class="blank_row"><td colspan="1"></td></tr>
+      <tr><td>{{ note.advice_text }}</td></tr>
+    </table>
+  {% endif %}
+</body>
+</html>
+
+

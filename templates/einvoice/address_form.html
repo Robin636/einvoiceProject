@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+% load widget_tweaks %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{#{{ form.media }}#}
+
+{% block title %}Adressen{% endblock title %}
+
+{% block content %}
+  
+  <form action="" method="post">{% csrf_token %}
+    
+    <div class="container text-left">
+      <div class="row" style="font-weight: bold">
+        <div class="col-3"></div>
+        <div class="col-3">Kundenadresse</div>
+        <div class="col-3">Rechnungsadresse</div>
+        <div class="col-3">Lieferadresse</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">Titel</div>
+        <div class="col-3">{{ cform.title }}</div>
+        <div class="col-3">{{ aform.iTitle }}</div>
+        <div class="col-3">{{ aform.dTitle }}</div>
+      </div> 
+      <div class="row">
+        <div class="col-3">Name</div>
+        <div class="col-3">{{ cform.name }}</div>
+        <div class="col-3">{{ aform.iName }}</div>
+        <div class="col-3">{{ aform.dName }}</div>
+      </div>  
+      <div class="row">
+        <div class="col-3">Adresse</div>
+        <div class="col-3">{{ cform.address }} </div>
+        <div class="col-3">{{ aform.iAddress }}</div>
+        <div class="col-3">{{ aform.dAddress }}</div>
+      </div>
+      <div class="row">
+        <div class="col-3">PLZ</div>
+        <div class="col-3">{{ cform.PLZ }} </div>
+        <div class="col-3">{{ aform.iPLZ }}</div>
+        <div class="col-3">{{ aform.dPLZ }}</div>
+      </div>
+      <div class="row">
+        <div class="col-3">Stadt</div>
+        <div class="col-3">{{ cform.city }}</div>
+        <div class="col-3">{{ aform.iCity }}</div>
+        <div class="col-3">{{ aform.dCity }}</div>
+      </div>
+      <div class="row">
+        <div class="col-3">Land</div>
+        <div class="col-3">{{ cform.country }}</div>
+        <div class="col-3">{{ aform.iCountry }}</div>
+        <div class="col-3">{{ aform.dCountry }}</div>
+      </div>
+      <div class="row">
+        <div class="col-3">Landes ID</div>
+        <div class="col-3">{{ cform.country_ID }}</div>
+        <div class="col-3">{{ aform.iCountry_ID }}</div>
+        <div class="col-3">{{ aform.dCountry_ID }}</div>
+      </div>
+      <div class="row">
+        <div class="col-3">Kontakt Name</div>
+        <div class="col-3">{{ cform.contact }}</div>
+        <div class="col-3">{{ aform.iContactName }}</div>
+        <div class="col-3">{{ aform.dContactName }}</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-3">Tel. Nr. Kontakt</div>
+        <div class="col-3">{{ cform.phone }}</div>
+        <div class="col-3">{{ aform.iPhone }}</div>
+        <div class="col-3">{{ aform.dPhone }}</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-3">E-Mail Adresse</div>
+        <div class="col-3">{{ cform.email }}</div>
+        <div class="col-3">{{ aform.iEmail }}</div>
+        <div class="col-3">{{ aform.dEmail }}</div>
+      </div>
+      <div class="row">
+        <div class="col-3">Kreditoren Nummer</div>
+        <div class="col-3">{{ cform.credit_number }}</div>
+        <div class="col-3">{{ aform.iCreditNumber }}</div>
+        <div class="col-3">{{ aform.dCreditNumber }}</div>
+      </div>
+      
+    </div>
+  
+    <br>
+    <div class="row">
+      <div class="col-3"><a  style="margin-right: 40px;" class="btn btn-secondary" href="{% url 'einvoice:invoice_list' %}">Cancel</a></div>
+      <div class="col-3"><button type="submit" name="cCustomer" class="save btn btn-success">Adressen Sichern</button></div>
+{#      <div class="col-3"><button type="submit" name="iCustomer" class="save btn btn-success">Rechnungsadresse Sichern</button></div>#}
+{#      <div class="col-3"><button type="submit" name="dCustomer" class="save btn btn-success">Lieferadresse Sichern</button></div>#}
+      
+    </div>
+{#    <div style="margin-left: 810px">#}
+{#      <a  style="margin-right: 40px;" class="btn btn-secondary" href="{% url 'einvoice:invoice_list' %}">Cancel</a>#}
+{#      <button type="submit" class="save btn btn-success">Sichern</button>#}
+{#    </div>#}
+
+  </form>
+
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{#{% load crispy_forms_filters %}#}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{#{% crispy form %}#}
+{% bootstrap_javascript %}
+{{ jQuery }}
+
+
+
+{% block title %}Neue Rechnung{% endblock title %}
+{% block styles %}{{ form.media }}{% endblock styles %}
+
+{% block content %}
+
+  {% if invoice.number %}
+    <h4>Rechnung {{ invoice.customer }} {{ invoice.number }}ändern:</h4>
+  {% else %}
+    <h4>Neue Rechnung: </h4>
+  {% endif %}
+  <hr>
+  
+  <div class="container">
+{#    <h6 class="pt-4 pb-2">Eingabeformular</h6>#}
+{#    <a class="nav-link" href="{% url 'einvoice:customer_add' %}"><i class="bi bi-plus-square"></i> </a>#}
+    
+    <form method="post">{% csrf_token %}
+      <div class="container text-left">
+        <div class="row" style ="margin-bottom: 25px; padding-bottom: 15px">  
+          <div class="col-2"><label for="number">Re-Nummer</label></div>
+          <div class="col-2"><input type='text' id="number" name="number" value={{ newiNumber }} ></div>
+{#          <div class="col-2">Rechnungsnr.</div>#}
+{#          <div class="col-2">{{ form.number }}</div>#}
+        </div>
+
+        <div class="row">
+          <div class="col-2">Kunde</div>
+          <div class="col-5">{{ form.customer }}</div>
+          <div class="col-2"><a href="{% url 'einvoice:customer_add' %}"><i class="bi bi-plus-square"></i> </a></div>
+        </div>
+
+        <div class="row">  
+          <div class="col-2">Sprache</div>
+          <div class="col-2">{{ form.language}}</div>
+        </div>
+      </div>
+{#      <table>#}
+{#        {% for field in form %}#}
+{#          <tr>#}
+{#            <td>{{ field.label }}: </td>#}
+{#            <td>{{ field }}</td>#}
+{#          </tr>#}
+{#        {% endfor %}#}
+{#      </table>#}
+{#      {% bootstrap_form form %}#}
+      
+      <div style="margin-top:20px; margin-left: 1000px">
+        <a style="margin-right: 40px;" class="btn btn-secondary" href="{% url 'einvoice:invoice_list' %}">Cancel</a>
+        <button type="submit" name="invoice_form" class="save btn btn-success">Sichern</button>
+      </div>
+      
+{#      <input type="submit" value="Save">#}
+    </form>
+  </div>
+
+{% endblock content %}
+  

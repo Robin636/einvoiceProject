@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ editor.firstname }}: {{ editor.lastname }}{% endblock title %}
+
+{% block content %}
+  
+  <div class="container">
+      <div class="row">
+        <div class="col-2" style="font-weight: bold">{{ editor.firstname }}</div>
+        <div class="col-3" style="font-weight: bold">{{ editor.lastname }}</div>
+        <div class="col-2" >{{ editor.email }} </div>
+      </div>
+      <p></p>
+      <div class="row">
+        <div class="col-2" >{{ editor.street}} {{ editor.houseno }}</div>
+{#        <div class="col-1" > </div>#}
+      </div>
+    
+      <div class="row">  
+        <div class="col-1" >{{ editor.pid }} </div>
+        <div class="col-3" >{{ editor.city }} </div>
+      </div>
+      <p></p>
+{#      <div class="row">#}
+        <div class="col-2" >{{ editor.telefon }}</div>
+        <div class="col-2" >{{ editor.mobile }}</div>
+{#      </div>#}
+  </div>
+    
+{% endblock content %}
