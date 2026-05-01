@@ -210,6 +210,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = '/einvoice/'
 LOGOUT_REDIRECT_URL = '/'
 
+# SECURE_SSL_REDIRECT = True  # 27.4.2026
+
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_HOST = 'smtp.strato.de'
 EMAIL_HOST_USER = 'send@rauner.de'

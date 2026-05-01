@@ -186,7 +186,7 @@ class Invoice(models.Model):
     # return self.customer.name + " " + str(self.number) + " " + str(self.date_created)
 
 
-cat_CHOICES = [('1', 'Artikel'), ('2', 'Titel'), ('3', 'Dienstleistung'), ('4', 'Rabatt')]
+cat_CHOICES = [('1', 'Dienstleistung'), ('2', 'Titel'), ('3', 'Artikel'), ('4', 'Rabatt')]
 unit_CHOICES = [('1', 'Std'), ('2', 'Stk'), ('3', 'km'), ('0', ' ')]
 
 
@@ -197,7 +197,7 @@ class Article(models.Model):
   description = models.CharField(max_length=100, blank=True, default='Artikeltext')
   nofArticles = models.DecimalField(max_digits=6, decimal_places=2, default=1.0)
   unit = models.CharField(max_length=3, choices=unit_CHOICES, default='Std')
-  price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+  price = models.DecimalField(max_digits=10, decimal_places=2, default=70.00)
   price_pos = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
   tax_percentage = models.DecimalField(max_digits=2, decimal_places=0, default=19)
 

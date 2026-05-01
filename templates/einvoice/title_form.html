@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
-{{ form.media }}
-
 {% block title %}{{ invoice.number }}{% endblock title %}
 
 {% block content %}
-  
+  {{ form.media }}
   <form action="" method="post">{% csrf_token %}
     
     <div class="container text-left">
