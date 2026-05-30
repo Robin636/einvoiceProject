@@ -4,7 +4,7 @@ CSRF_TRUSTED_ORIGINS=['eiv.edvin.co', 'www.eiv.edvin.co', 'https://eiv.edvin.co'
 DEBUG = False
 SECRET_KEY = env('SECRET_KEY')
 ALLOWED_HOSTS = ['eiv.edvin.co', '127.0.0.1']
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SECURE_SSL_REDIRECT = True  # 27.4.2026
 
