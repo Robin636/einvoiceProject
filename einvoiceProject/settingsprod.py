@@ -24,22 +24,26 @@ from django.contrib.messages import constants as messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-env = environ.Env(DEBUG=(bool, False))
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# env = environ.Env(DEBUG=(bool, False))
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Add .env variables anywhere before SECRET_KEY
-SECRET_KEY = env('SECRET_KEY')   # instead of my secret key
+# SECRET_KEY = env('SECRET_KEY')   # instead of my secret key
+SECRET_KEY = 'django-insecure-*1(u(7m-)be_c(u@7ul-lxw8^zuv)9hk-$#s7*&_en231a_cum'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = env('DEBUG')
+DEBUG = False
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+# ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
+ALLOWED_HOSTS = ['eiv.edvin.co', 'www.eiv.edvin.co',]
 # ALLOWED_HOSTS = ['localhost','127.0.0.1','eiv.edvin.co', '152.53.248.137',]
+
     # ALLOWED_HOSTS = ['<prod DNS, host, and/or IP>',]
 # else:
 #     ALLOWED_HOSTS = ['localhost','127.0.0.1',]
@@ -117,46 +121,29 @@ WSGI_APPLICATION = 'einvoiceProject.wsgi.application'
 #     }
 # }
 # if IS_LOCAL_APP:
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'einvoice_db',     #schema
-#         'USER': 'root',
-#         'PASSWORD': 'Pages636!',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
-
-# DATABASES = {
-#     'default': env.db_url()
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': env('DB_ENGINE'),
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'einvoice_db',     #schema
+        'USER': 'root',
+        'PASSWORD': 'Pages636!',
+        'HOST': 'localhost',
+        'PORT': '',
     }
-
 }
-# print(DATABASES)
 
-# if IS_PROD_DB:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.mysql',
-#             'NAME': 'einvoice_db',  # schema
-#             'USER': 'root',
-#             'PASSWORD': 'Pages636!',
-#             'HOST': 'localhost',
-#             'PORT': '3306',
-#         }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': env('DB_ENGINE'),
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOST'),
+#         'PORT': env('DB_PORT'),
 #     }
+# }
+
+
 
 
 # Password validation
@@ -194,17 +181,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 STATIC_URL = '/static/'
-
-# if DEBUG:
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = BASE_DIR / 'static'
-# else:
-#     STATIC_ROOT = ''
-
-STATICFILES_DIRS = [BASE_DIR / 'static',]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
